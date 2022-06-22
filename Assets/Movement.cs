@@ -30,6 +30,16 @@ public class Movement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             isGrounded = false;
         }
+
+        // if crosses finish line, load next level
+        // get position of finish line
+        Vector3 finishLine = GameObject.FindGameObjectWithTag("Finish").transform.position;
+
+        if (transform.position.x > finishLine.x)
+        {
+            // load next level
+            Application.LoadLevel(Application.loadedLevel + 1);
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
