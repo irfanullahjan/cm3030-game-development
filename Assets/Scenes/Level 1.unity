@@ -190,7 +190,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -574,7 +574,7 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -54.999817, y: -15.4}
+    - - {x: -54.99981, y: -15.4}
       - {x: -54.859573, y: -5.299999}
       - {x: -27.458118, y: -5.3}
       - {x: -27.44508, y: -2.700338}
@@ -606,12 +606,12 @@ PolygonCollider2D:
       - {x: 51.077705, y: -2.9983156}
       - {x: 51.966675, y: -3.044742}
       - {x: 53.15921, y: -2.965884}
-      - {x: 55.01435, y: -2.6596239}
-      - {x: 60.4, y: -2.8529031}
-      - {x: 60.4, y: -15.399999}
-      - {x: -53.08206, y: -15.4}
+      - {x: 55.001595, y: -2.6593697}
+      - {x: 100.399994, y: -2.8403974}
+      - {x: 100.399994, y: -15.4}
+      - {x: -53.083412, y: -15.4}
       - {x: -54.087242, y: -15.4}
-      - {x: -54.999817, y: -15.4}
+      - {x: -54.99981, y: -15.4}
 --- !u!114 &1387480713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -816,7 +816,7 @@ MonoBehaviour:
       bevelSize: 0
       spriteIndex: 0
       corner: 1
-    - position: {x: 60, y: -3.2388055, z: 0}
+    - position: {x: 100, y: -3.2388055, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -825,7 +825,7 @@ MonoBehaviour:
       bevelSize: 0
       spriteIndex: 0
       corner: 1
-    - position: {x: 60, y: -15, z: 0}
+    - position: {x: 100, y: -15, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -906,8 +906,8 @@ SpriteShapeRenderer:
   - {fileID: 21300000, guid: d2272207bb2d84be8971539bab351c7d, type: 3}
   - {fileID: 21300000, guid: a45bb8f4a5a2045d18c121de538b4c81, type: 3}
   m_LocalAABB:
-    m_Center: {x: 2.6993904, y: -7.7500005, z: -0.00105005}
-    m_Extent: {x: 57.800606, y: 7.7500005, z: 0.00105005}
+    m_Center: {x: 22.69941, y: -7.7500005, z: -0.00105005}
+    m_Extent: {x: 77.80061, y: 7.7500005, z: 0.00105005}
 --- !u!4 &1387480715
 Transform:
   m_ObjectHideFlags: 0
@@ -948,7 +948,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1501431927}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 53.74, y: 0, z: 0}
+  m_LocalPosition: {x: 86.9, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
