@@ -5,7 +5,8 @@ using UnityEngine;
 public class RespawnPlayer : MonoBehaviour
 {
     // Where the player will respawn.
-    public GameObject respawnPoint;
+    public float respawnPointX;
+    public float respawnPointY;
 
     private GameObject GameController;
     private EventManager EventManager;
@@ -28,7 +29,7 @@ public class RespawnPlayer : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             EventManager.playerDeath();
-            collision.gameObject.transform.position = new Vector2(respawnPoint.transform.position.x, respawnPoint.transform.position.y);
+            collision.gameObject.transform.position = new Vector2(respawnPointX, respawnPointY);
         }
     }
 }

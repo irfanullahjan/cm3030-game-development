@@ -123,7 +123,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65f24752f383afa4ab23bb77389345a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawnPoint: {fileID: 0}
+  respawnPointX: -50
+  respawnPointY: 0
 --- !u!50 &7747052457389153013
 Rigidbody2D:
   serializedVersion: 4
@@ -158,3 +159,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  distance: 20
