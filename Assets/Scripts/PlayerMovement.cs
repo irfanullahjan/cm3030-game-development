@@ -90,6 +90,8 @@ public class PlayerMovement : MonoBehaviour
         {
             crouch = false;
         }
+
+        animator.SetFloat("yVelocity", _rigidbody.velocity.y);
     }
 
    public void OnLanding ()
