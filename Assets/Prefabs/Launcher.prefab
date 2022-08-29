@@ -208,5 +208,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnRate: 2
-  projectile: {fileID: 7747052457389153010, guid: 23d1b432d1b385f41b832eb0361d83a5,
+  projectile: {fileID: 987083297778883385, guid: 27277137d0605bd45bd741cdb791e0c1,
     type: 3}
