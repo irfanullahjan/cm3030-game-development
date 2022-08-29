@@ -5,8 +5,10 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public Animator animator;
+    public float deathDelay = 0f;
     public int maxHealth = 100;
     int currentHealth;
+    bool isDead = false;
     
     // Start is called before the first frame update
     void Start()
@@ -33,8 +35,19 @@ public class Enemy : MonoBehaviour
 
         //Die animation
         animator.SetBool("IsDead", true);
+        isDead = true;
         //Despawn Enemy
-        GetComponent<Collider2D>().enabled = false;
-        this.enabled = false;
+        Destroy (gameObject, this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length + deathDelay); 
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (!isDead)
+        {
+            if (collision.gameObject.tag == "Player")
+            {
+                animator.SetTrigger("Attack");
+            }
+        }
     }
 }
