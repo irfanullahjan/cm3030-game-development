@@ -61,11 +61,7 @@ public class ProjectileMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
-        {
-            Destroy(gameObject);
-        }
-        if (collision.gameObject.tag == "Ground")
+        if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Enemy")
         {
             Destroy(gameObject);
         }
