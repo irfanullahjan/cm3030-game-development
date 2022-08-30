@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SpikeTrap : MonoBehaviour
 {
-    public float timeBeforeRetract = 1.0f;
+    [SerializeField]
+    private float timeBeforeRetract = 1.0f;
 
     private bool isRising = false;
     private bool isRetracting = false;

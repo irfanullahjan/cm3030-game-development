@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class FallingPlatform : MonoBehaviour
 {
-    public float timeBeforeFall = 3.0f;
-    public float timeBeforeReappear = 6.0f;
-    public float speed = 2.0f;
+    [SerializeField]
+    private float timeBeforeFall = 3.0f;
+    [SerializeField]
+    private float timeBeforeReappear = 6.0f;
+    [SerializeField]
+    private float speed = 2.0f;
 
     private bool isFalling = false;
     private bool isRising = false;
