@@ -49,14 +49,18 @@ public class SpikeTrap : MonoBehaviour
     IEnumerator WaitToRetract()
     {
         yield return new WaitForSeconds(timeBeforeRetract);
-        isRetracting = true;
+        if (!isRising)
+        {
+            isRetracting = true;
+        }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
             isRising = true;
+            isRetracting = false;
         }
     }
 

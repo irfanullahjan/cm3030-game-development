@@ -30,7 +30,6 @@ public class FallingPlatform : MonoBehaviour
     {
         if (isFalling)
         {
-            anim.SetBool("hasStoodOn", false);
             if (Vector2.Distance(points[1].transform.position, transform.parent.gameObject.transform.position) > .1f)
             {
                 transform.parent.gameObject.transform.position = Vector2.MoveTowards(transform.parent.gameObject.transform.position, points[1].transform.position, speed * Time.deltaTime);
@@ -40,6 +39,7 @@ public class FallingPlatform : MonoBehaviour
                 // disable colliders
                 transform.parent.gameObject.GetComponent<PolygonCollider2D>().enabled = false;
                 gameObject.GetComponent<BoxCollider2D>().enabled = false;
+                anim.SetBool("hasStoodOn", false);
 
                 isFalling = false;
                 anim.SetBool("isFalling", isFalling);
@@ -52,15 +52,21 @@ public class FallingPlatform : MonoBehaviour
         }
         if (isRising)
         {
+            if (!gameObject.GetComponent<BoxCollider2D>().enabled)
+            {
+                // enable colliders
+                transform.parent.gameObject.GetComponent<PolygonCollider2D>().enabled = true;
+                gameObject.GetComponent<BoxCollider2D>().enabled = true;
+            }
+
             if (Vector2.Distance(points[0].transform.position, transform.parent.gameObject.transform.position) > .1f)
             {
                 transform.parent.gameObject.transform.position = Vector2.MoveTowards(transform.parent.gameObject.transform.position, points[0].transform.position, speed * Time.deltaTime);
             }
             else
             {
-                // enable colliders
-                transform.parent.gameObject.GetComponent<PolygonCollider2D>().enabled = true;
-                gameObject.GetComponent<BoxCollider2D>().enabled = true;
+
+
 
                 isRising = false;
                 anim.SetBool("isRising", isRising);
