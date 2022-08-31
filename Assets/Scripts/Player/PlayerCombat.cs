@@ -39,6 +39,8 @@ public class PlayerCombat : MonoBehaviour
         {
             enemy.GetComponent<EnemyAI>().TakeDamage(attackDamage);
         }
+    
+
     }
     void OnDrawGizmosSelected()
     {
