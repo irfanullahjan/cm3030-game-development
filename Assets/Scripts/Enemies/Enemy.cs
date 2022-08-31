@@ -37,7 +37,7 @@ public class Enemy : MonoBehaviour
         animator.SetBool("IsDead", true);
         isDead = true;
         //Despawn Enemy
-        Destroy (gameObject, this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length + deathDelay); 
+        //Destroy (gameObject, this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length + deathDelay); 
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

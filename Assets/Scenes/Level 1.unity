@@ -22939,6 +22939,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1090388245}
+  deathDelay: 0
   maxHealth: 100
 --- !u!1001 &1102346584
 PrefabInstance:
