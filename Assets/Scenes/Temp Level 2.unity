@@ -816,8 +816,8 @@ GameObject:
   - component: {fileID: 1244868784}
   - component: {fileID: 1244868783}
   - component: {fileID: 1244868782}
-  - component: {fileID: 1244868781}
   - component: {fileID: 1244868791}
+  - component: {fileID: 1244868781}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -834,12 +834,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1244868780}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a049c3ead40e8040aea8b8166d053e6, type: 3}
+  m_Script: {fileID: 11500000, guid: 131c6f827d7ad4b49a5937fe8b6ccc3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1244868783}
   attackPoint: {fileID: 1071989342}
-  attackRange: 0.68
+  attackRange: 0.93
   enemyLayers:
     serializedVersion: 2
     m_Bits: 256
