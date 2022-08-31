@@ -5984,7 +5984,7 @@ GameObject:
   - component: {fileID: 205741802}
   - component: {fileID: 205741801}
   m_Layer: 0
-  m_Name: RespawnBox2
+  m_Name: RespawnBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8293,7 +8293,7 @@ GameObject:
   - component: {fileID: 984406413}
   - component: {fileID: 984406412}
   m_Layer: 0
-  m_Name: RespawnBox1
+  m_Name: RespawnBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
