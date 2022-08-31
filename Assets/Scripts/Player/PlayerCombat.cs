@@ -37,8 +37,7 @@ public class PlayerCombat : MonoBehaviour
 
         foreach (Collider2D enemy in hitEnemies)
         {
-            enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
-        
+            enemy.GetComponent<EnemyAI>().TakeDamage(attackDamage);
         }
     
 

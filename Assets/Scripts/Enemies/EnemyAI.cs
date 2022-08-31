@@ -5,38 +5,107 @@
  
     public Animator animator;
     public Transform target;
+    public Transform attackPoint;
+    public LayerMask playerLayers;
+
     public float speed = 2f;
     public float range = 15f;
-    private bool isRunning = false;
-    private float minDistance = 3f;
+    public float attackRange = 3f;
+    public float attackDelay = 1;
+    public float deathDelay = 0f;
+    public int maxHealth = 100;
+
+    private float timePassed = 1;
+    // private bool isRunning = false;
     private float distance;
     private bool facingRight = false;
+    private Vector3 previous;
+    private float velocity = 0;
+    private int currentHealth;
+    private bool isDead = false;
+
+    private Rigidbody2D _rigidbody;
+
+    void Start()
+    {
+        _rigidbody = GetComponent<Rigidbody2D>();
+    }
+
+        
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        animator.SetTrigger("Hurt");
+
+        //play get hit animation
+
+        if(currentHealth <=0)
+       {
+           Die();
+       }
+    }
+
+    void Die()
+    {
+        Debug.Log("Enemy Died");
+
+        //Die animation
+        animator.SetBool("IsDead", true);
+        isDead = true;
+        //Despawn Enemy
+        Destroy (gameObject, this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length + deathDelay); 
+    }
+
+    void Attack()
+    {
+        new WaitForSeconds(0.5f);
+
+        animator.SetTrigger("Attack");
+
+        Collider2D[] hitPlayers = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayers);
+
+        foreach (Collider2D player in hitPlayers)
+        {
+            player.GetComponent<PlayerLives>().loseLife();
+        }
+    }
 
     void FixedUpdate ()
     {
-        distance = Vector2.Distance(transform.position, target.position);
-
-        if (distance > minDistance && distance <= range)
+        if (!isDead) 
         {
-            if (!isRunning) {
-                animator.SetBool("IsRunning", true);
-                isRunning = true;    
-            }
+            distance = Vector2.Distance(transform.position, target.position);
+            previous = transform.position;
 
-            // Flip enemy if moving other way
-            if (((transform.position - target.position)[0] > 0 && facingRight) 
-                || ((transform.position - target.position)[0] < 0 && !facingRight))
+            if (distance <= attackRange)
             {
-                Flip();
+                // wait for attack to be ready
+                if (timePassed >= attackDelay) {
+                    timePassed = 0;
+                    Attack();
+                }
             }
 
-            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-        }
-        else if (isRunning)
-        {
-            animator.SetBool("IsRunning", false);
-            animator.SetTrigger("StopRunning");
-            isRunning = false;
+            if (distance > attackRange && distance <= range)
+            {
+
+                // Flip enemy if moving other way
+                if (((transform.position - target.position)[0] > 0 && facingRight) 
+                    || ((transform.position - target.position)[0] < 0 && !facingRight))
+                {
+                    Flip();
+                }
+                transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+            }
+
+            if (timePassed < attackDelay) 
+            {
+                // increment passed time
+                timePassed += Time.deltaTime;
+            }
+
+            velocity = ((transform.position - previous).magnitude) / Time.deltaTime;
+            animator.SetFloat("Velocity", velocity);
         }
     }
 

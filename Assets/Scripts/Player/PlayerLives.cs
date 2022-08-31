@@ -23,7 +23,7 @@ public class PlayerLives : MonoBehaviour
         EventManager.OnPlayerDeath -= loseLife;
     }
 
-    private void loseLife()
+    public void loseLife()
     {
         Debug.Log("player lost 1 life!");
         lives -= 1;
