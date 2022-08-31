@@ -6,9 +6,14 @@ using UnityEngine;
 
 public class SpawnProjectile : MonoBehaviour
 {
-    public float spawnRate = 10.0f;
-    //public Direction direction = Direction.Left;
-    public GameObject projectile;
+    [SerializeField]
+    private float spawnRate = 10.0f;
+    [SerializeField]
+    private GameObject projectile;
+    [SerializeField]
+    private float respawnPointX = -50f;
+    [SerializeField]
+    private float respawnPointY = 0f;
 
     private float timePassed = 0.0f;
 
@@ -25,7 +30,8 @@ public class SpawnProjectile : MonoBehaviour
         if (timePassed > spawnRate)
         {
             GameObject proj = Instantiate(projectile, gameObject.transform.position, gameObject.transform.rotation);
-            //proj.GetComponent<ProjectileMovement>().direction = direction;
+            proj.GetComponent<ProjectileMovement>().respawnPointX = respawnPointX;
+            proj.GetComponent<ProjectileMovement>().respawnPointY = respawnPointY;
 
             timePassed = 0.0f;
         }

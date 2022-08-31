@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class ProjectileMovement : MonoBehaviour
 {
-    public float speed = 2.0f;
-    public float distanceBeforeDestroy = 20f;
+    [SerializeField]
+    private float speed = 2.0f;
+    [SerializeField]
+    private float distanceBeforeDestroy = 20f;
+
+    public float respawnPointX;
+    public float respawnPointY;
 
     //public Direction direction;
 
@@ -14,31 +19,14 @@ public class ProjectileMovement : MonoBehaviour
 
     private Rigidbody2D rb;
 
-    //private float velocityX = 0.0f;
-    //private float velocityY = 0.0f;
-
     // Start is called before the first frame update
     void Start()
     {
         lastPos = transform.position;
         rb = GetComponent<Rigidbody2D>();
 
-        //if(direction == Direction.Left)
-        //{
-        //    velocityX = speed * -1;
-        //}
-        //if (direction == Direction.Right)
-        //{
-        //    velocityX = speed * 1;
-        //}
-        //if (direction == Direction.Up)
-        //{
-        //    velocityY = speed * 1;
-        //}
-        //if (direction == Direction.Down)
-        //{
-        //    velocityY = speed * -1;
-        //}
+        GetComponent<RespawnPlayer>().respawnPointX = respawnPointX;
+        GetComponent<RespawnPlayer>().respawnPointY = respawnPointY;
     }
 
     // Update is called once per frame
@@ -53,10 +41,6 @@ public class ProjectileMovement : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        //if(rb.transform.position.x < -50 || rb.transform.position.x > 250)
-        //{
-        //    Destroy(gameObject);
-        //}
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

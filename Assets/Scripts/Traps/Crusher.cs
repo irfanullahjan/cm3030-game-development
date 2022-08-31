@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class Crusher : MonoBehaviour
 {
-    public float timeBeforeFall = 4.0f;
-    public float timeBeforeRise = 2.0f;
-    public float speed = 10.0f;
+    [SerializeField]
+    private float timeBeforeFall = 4.0f;
+    [SerializeField]
+    private float timeBeforeRise = 2.0f;
+    [SerializeField]
+    private float speed = 10.0f;
 
     private bool hasFallen = false;
     private bool isRising = false;
