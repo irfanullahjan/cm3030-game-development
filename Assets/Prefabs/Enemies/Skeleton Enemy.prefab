@@ -126,7 +126,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 4
+  m_Constraints: 7
 --- !u!61 &6161708328981467923
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -170,7 +170,7 @@ MonoBehaviour:
   attackPoint: {fileID: 2697863361847379137}
   playerLayers:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 1024
   speed: 2
   range: 15
   attackRange: 4

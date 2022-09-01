@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
     {
         var dashInput = Input.GetButtonDown("Dash");
 
-        if (dashInput && _canDash)
+        if (dashInput && _canDash && !crouch)
         {
             _isDashing = true;
             _canDash = false;
@@ -85,8 +85,9 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Crouch"))
         {
-            crouch = true;
-        } else if(Input.GetButtonUp("Crouch"))
+             crouch = true;
+        } 
+        else if(Input.GetButtonUp("Crouch"))
         {
             crouch = false;
         }

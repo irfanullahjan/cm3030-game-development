@@ -6,6 +6,8 @@ public class WrathPhase : MonoBehaviour
 {
     public GameObject Slime;
     public GameObject Boss;
+    public GameObject healthBar;
+    public GameObject healthBardisable;
     Renderer rend;
     BoxCollider2D col;
     Rigidbody2D rb; 
@@ -27,6 +29,8 @@ public class WrathPhase : MonoBehaviour
     {
         //Slime.SetActive(false);
         Boss.SetActive(true);
+        healthBar.SetActive(true);
+        healthBardisable.SetActive(false);
         rend.enabled = false;
         col.enabled = false;
         rb.bodyType = RigidbodyType2D.Static;

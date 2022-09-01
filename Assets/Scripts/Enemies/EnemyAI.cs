@@ -66,7 +66,7 @@
 
         foreach (Collider2D player in hitPlayers)
         {
-            player.GetComponent<PlayerLives>().loseLife();
+            player.GetComponent<PlayerHealth>().TakeDamage(10);
         }
     }
 

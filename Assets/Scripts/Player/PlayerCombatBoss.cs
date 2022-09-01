@@ -12,6 +12,14 @@ public class PlayerCombatBoss : MonoBehaviour
     public int attackDamage = 40;
     public float attackRate = 2f;
     float nextAttackTime = 0f;
+    AudioSource _audioSource;
+
+
+
+    void Start()
+    {
+        _audioSource = GetComponent<AudioSource>();
+    }
 
 
     // Update is called once per frame
@@ -32,6 +40,7 @@ public class PlayerCombatBoss : MonoBehaviour
     void Attack()
     {
         animator.SetTrigger("Attack");
+        _audioSource.Play();
 
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
