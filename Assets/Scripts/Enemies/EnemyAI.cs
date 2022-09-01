@@ -88,14 +88,13 @@
 
             if (distance > attackRange && distance <= range)
             {
-
                 // Flip enemy if moving other way
                 if (((transform.position - target.position)[0] > 0 && facingRight) 
                     || ((transform.position - target.position)[0] < 0 && !facingRight))
                 {
                     Flip();
                 }
-                transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position, new Vector2(target.position.x, transform.position.y), speed * Time.deltaTime);
             }
 
             if (timePassed < attackDelay) 
