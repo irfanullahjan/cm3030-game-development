@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
@@ -9,7 +10,10 @@ public class Enemy : MonoBehaviour
     public int maxHealth = 100;
     int currentHealth;
     bool isDead = false;
-    
+    public bool isInvulnerable = false;
+    public Slider healthBar;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,12 +22,19 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if (isInvulnerable)
+            return;
+
         currentHealth -= damage;
+        healthBar.value -= damage;
         animator.SetTrigger("Hurt");
 
-        //play get hit animation
+        if (currentHealth <= 200)
+        {
+            GetComponent<Animator>().SetBool("IsEnraged", true);
+        }
 
-        if(currentHealth <=0)
+        if (currentHealth <=0)
        {
            Die();
        }

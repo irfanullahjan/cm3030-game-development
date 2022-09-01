@@ -6,6 +6,7 @@ public class FireSlimePhase : MonoBehaviour
 {
     public GameObject Slime;
     public GameObject Boss;
+    public GameObject healthBar;
     Renderer rend;
     BoxCollider2D col;
     Rigidbody2D rb; 
@@ -27,6 +28,7 @@ public class FireSlimePhase : MonoBehaviour
     {
         //Slime.SetActive(false);
         Boss.SetActive(true);
+        healthBar.SetActive(true);
         rend.enabled = false;
         col.enabled = false;
         rb.bodyType = RigidbodyType2D.Static;
