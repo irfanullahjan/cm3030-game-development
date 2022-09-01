@@ -6,31 +6,38 @@ public class PlayerLives : MonoBehaviour
 {
     public int lives = 5;
 
+    private GameObject GameController;
+    private EventManager EventManager;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        GameController = GameObject.FindGameObjectWithTag("GameController");
+        EventManager = GameController.GetComponent<EventManager>();
     }
 
-    // Update is called once per frame
     private void OnEnable()
     {
-        EventManager.OnPlayerDeath += loseLife;
+        EventManager.OnPlayerDeath += LoseLife;
     }
 
     private void OnDisable()
     {
-        EventManager.OnPlayerDeath -= loseLife;
+        EventManager.OnPlayerDeath -= LoseLife;
     }
 
-    public void loseLife()
+    public void LoseLife()
     {
         Debug.Log("player lost 1 life!");
         lives -= 1;
+        if(lives <= 0)
+        {
+            EventManager.PlayerLoses();
+        }
     }
 
     // unused but is here if we need it!
-    private void gainLife()
+    private void GainLife()
     {
         Debug.Log("player gained 1 life!");
         lives += 1;

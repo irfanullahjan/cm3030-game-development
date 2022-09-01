@@ -28,7 +28,7 @@ public class RespawnPlayer : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            EventManager.playerDeath();
+            EventManager.PlayerDies();
             collision.gameObject.transform.position = new Vector2(respawnPointX, respawnPointY);
         }
     }
