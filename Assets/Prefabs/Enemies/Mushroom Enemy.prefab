@@ -201,9 +201,9 @@ MonoBehaviour:
   playerLayers:
     serializedVersion: 2
     m_Bits: 1024
-  speed: 2
+  speed: 1
   range: 15
   attackRange: 4
   attackDelay: 1
   deathDelay: 1
-  maxHealth: 100
+  maxHealth: 160

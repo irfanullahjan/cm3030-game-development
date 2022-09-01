@@ -176,7 +176,7 @@ MonoBehaviour:
   attackRange: 4
   attackDelay: 1
   deathDelay: 1
-  maxHealth: 100
+  maxHealth: 120
 --- !u!1 &8362166726831827728
 GameObject:
   m_ObjectHideFlags: 0
