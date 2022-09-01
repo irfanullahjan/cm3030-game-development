@@ -35,6 +35,7 @@ public class PlayerHealth : MonoBehaviour
 		if (health <= 0)
 		{
 			EventManager.PlayerDies();
+			gameObject.transform.position = new Vector2(respawnPointX, respawnPointY);
 		}
 	}
 
@@ -52,7 +53,6 @@ public class PlayerHealth : MonoBehaviour
 	{
 		// anything that must be reset
 		health = 100;
-		gameObject.transform.position = new Vector2(respawnPointX, respawnPointY);
 	}
 
 	IEnumerator DamageAnimation()
