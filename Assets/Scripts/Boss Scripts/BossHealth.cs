@@ -9,6 +9,16 @@ public class BossHealth : MonoBehaviour
 
 	public bool isInvulnerable = false;
 
+	private GameObject GameController;
+	private EventManager EventManager;
+
+	// Start is called before the first frame update
+	void Start()
+	{
+		GameController = GameObject.FindGameObjectWithTag("GameController");
+		EventManager = GameController.GetComponent<EventManager>();
+	}
+
 	public void TakeDamage(int damage)
 	{
 		if (isInvulnerable)
@@ -24,12 +34,14 @@ public class BossHealth : MonoBehaviour
 		if (health <= 0)
 		{
 			Die();
-		}
+        }
 	}
 
 	void Die()
 	{
 		GetComponent<Animator>().SetBool("IsDead", true);
+
+		EventManager.PlayerWins();
 	}
 
 }
