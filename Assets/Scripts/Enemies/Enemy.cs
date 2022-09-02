@@ -13,10 +13,14 @@ public class Enemy : MonoBehaviour
     public bool isInvulnerable = false;
     public Slider healthBar;
 
+    private GameObject GameController;
+    private EventManager EventManager;
 
     // Start is called before the first frame update
     void Start()
     {
+        GameController = GameObject.FindGameObjectWithTag("GameController");
+        EventManager = GameController.GetComponent<EventManager>();
         currentHealth = maxHealth;
     }
 
@@ -39,7 +43,14 @@ public class Enemy : MonoBehaviour
            Die();
        }
     }
-   
+
+    IEnumerator WaitToDisplayWin()
+    {
+        //yield return new WaitForSeconds(this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length + deathDelay);
+        yield return new WaitForSeconds(3);
+        EventManager.PlayerWins();
+    }
+
     void Die()
     {
         Debug.Log("Enemy Died");
@@ -48,6 +59,12 @@ public class Enemy : MonoBehaviour
         animator.SetBool("IsDead", true);
         isDead = true;
         //Despawn Enemy
+
+        // make sure it is in the final phase.
+        if (gameObject.name == "WrathP2") {
+            // allow the boss to die.
+            StartCoroutine(WaitToDisplayWin());
+        }
         //Destroy (gameObject, this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length + deathDelay); 
     }
 
