@@ -38,7 +38,7 @@ public class PlayerHealth : MonoBehaviour
 		if (health <= 0)
 		{
 			EventManager.PlayerDies();
-			gameObject.transform.position = new Vector2(respawnPointX, respawnPointY);
+			//gameObject.transform.position = new Vector2(respawnPointX, respawnPointY);
 		}
 	}
 
