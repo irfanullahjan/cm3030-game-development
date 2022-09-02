@@ -29,6 +29,7 @@
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        currentHealth = maxHealth;
     }
 
         
@@ -53,6 +54,8 @@
         animator.SetBool("IsDead", true);
         isDead = true;
         //Despawn Enemy
+        _rigidbody.constraints = RigidbodyConstraints2D.FreezePositionY; // stop them from falling when we disable the collider
+        this.GetComponent<BoxCollider2D>().enabled = false;
         Destroy (gameObject, this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length + deathDelay); 
     }
 

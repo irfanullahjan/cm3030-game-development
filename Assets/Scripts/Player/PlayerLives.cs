@@ -7,7 +7,6 @@ public class PlayerLives : MonoBehaviour
     public int maxLives = 10;
     public int currentLives;
 
-    public int lives = 5;
     public HealthBar healthBar;
 
     private GameObject GameController;
@@ -36,12 +35,13 @@ public class PlayerLives : MonoBehaviour
     public void LoseLife()
     {
         Debug.Log("player lost 1 life!");
-        //lives -= 1;
-        //if(lives <= 0)
-        //{
-            //EventManager.PlayerLoses();
-        //}
         currentLives -= 1;
+
+        if(currentLives <= 0)
+        {
+            EventManager.PlayerLoses();
+        }
+
         healthBar.SetHealth(currentLives);
     }
 
@@ -49,6 +49,7 @@ public class PlayerLives : MonoBehaviour
     private void GainLife()
     {
         Debug.Log("player gained 1 life!");
-        lives += 1;
+        currentLives += 1;
+        healthBar.SetHealth(currentLives);
     }
 }

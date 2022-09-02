@@ -25,7 +25,7 @@ public class Boulder : MonoBehaviour
             Destroy(transform.parent.gameObject);
         }
     }
-    IEnumerator minimumTime()
+    IEnumerator MinimumTime()
     {
         yield return new WaitForSeconds(1);
         hasTriggered = true;
@@ -38,7 +38,7 @@ public class Boulder : MonoBehaviour
             rb.freezeRotation = false;
             rb.velocity = -transform.right * force;
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
-            StartCoroutine(minimumTime());
+            StartCoroutine(MinimumTime());
         }
     }
 }

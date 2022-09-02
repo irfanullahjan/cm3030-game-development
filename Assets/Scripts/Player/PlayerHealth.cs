@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class PlayerHealth : MonoBehaviour
 	// Where the player will respawn.
 	private float respawnPointX;
 	private float respawnPointY;
+	public Slider healthBar;
 
 	public GameObject deathEffect;
 
@@ -30,12 +32,13 @@ public class PlayerHealth : MonoBehaviour
 	public void TakeDamage(int damage)
 	{
 		health -= damage;
+		healthBar.value -= damage;
 		StartCoroutine(DamageAnimation());
 
 		if (health <= 0)
 		{
 			EventManager.PlayerDies();
-			gameObject.transform.position = new Vector2(respawnPointX, respawnPointY);
+			//gameObject.transform.position = new Vector2(respawnPointX, respawnPointY);
 		}
 	}
 
@@ -52,6 +55,7 @@ public class PlayerHealth : MonoBehaviour
 	void Die()
 	{
 		// anything that must be reset
+		healthBar.value = healthBar.maxValue;
 		health = 100;
 	}
 
